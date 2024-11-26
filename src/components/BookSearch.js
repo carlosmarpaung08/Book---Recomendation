@@ -20,7 +20,7 @@ const BookSearch = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `https://f75e-103-121-146-143.ngrok-free.app/api/search/?q=${query}&startIndex=${index}&maxResults=${maxResults}`
+        `http://localhost:8000/api/search/?q=${query}&startIndex=${index}&maxResults=${maxResults}`
       );
 
       const fetchedBooks = response.data;
@@ -109,9 +109,7 @@ const BookSearch = () => {
                     <div className="image-placeholder">Loading Image...</div>
                   )}
                   <img
-                    src={
-                      book.thumbnail || "https://via.placeholder.com/100x150"
-                    }
+                    src={book.thumbnail || "https://via.placeholder.com/100x150"}
                     alt={book.title}
                     className={`book-thumbnail-small ${
                       imageLoaded[index] ? "visible" : "hidden"
