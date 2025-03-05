@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./BookDetail.css";
 
@@ -6,6 +6,7 @@ const BookDetail = () => {
   const location = useLocation(); // Mengambil data buku dari state
   const navigate = useNavigate();
   const { book, query, startIndex } = location.state || {}; // Data buku yang diterima
+  const [isFavorite, setIsFavorite] = useState(false);
 
   if (!book) {
     return <p>Book details not available.</p>;
@@ -17,6 +18,10 @@ const BookDetail = () => {
     } else {
       navigate(-1);
     }
+  };
+
+  const toggleFavorite = () => {
+    setIsFavorite(!isFavorite);
   };
 
   return (
@@ -61,6 +66,12 @@ const BookDetail = () => {
           <p className="book-published">
             <span>Published:</span> {book.publishedDate || "Unknown"}
           </p>
+          <button 
+            className={`favorite-button ${isFavorite ? 'favorited' : ''}`} 
+            onClick={toggleFavorite}
+          >
+            {isFavorite ? '★ Added to Favorites' : '☆ Add to Favorites'}
+          </button>
         </div>
       </div>
     </div>

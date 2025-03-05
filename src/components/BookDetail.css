@@ -130,3 +130,28 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
   
+  /* Tambahkan style untuk button favorite */
+.favorite-button {
+  padding: 10px 15px;
+  background-color: #f2d6cd;  /* Gunakan warna yang sudah ada */
+  color: #c03403;  /* Warna untuk teks yang sesuai dengan desain */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+.favorite-button:hover {
+  background-color: #e2b3a1;
+}
+
+.favorite-button.favorited {
+  background-color: #c03403;
+  color: white;
+}
+
+.favorite-button.favorited:hover {
+  background-color: #9b2e02;
+}
